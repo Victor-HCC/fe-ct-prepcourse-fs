@@ -35,6 +35,14 @@ function capicua(numero) {
    // Si el número que recibes es capicúa debes retornar el string: "Es capicua".
    // Caso contrario: "No es capicua".
    // Tu código:
+   // let str = numero.toString();
+
+   // for(let i = 0; i < str.length; i++) {
+   //    if(str[i] !== str[str.length - 1 - i]) {
+   //       return 'No es capicua';
+   //    }
+   // }
+   // return 'Es capicua'
 }
 
 function deleteAbc(string) {
@@ -49,7 +57,31 @@ function sortArray(arrayOfStrings) {
    // de la longitud de cada string.
    // [EJEMPLO]: ["You", "are", "beautiful", "looking"]  ---> [“You", "are", "looking", "beautiful"]
    // Tu código:
+   // let arrayOrdenado = [];
+   // let indexOrdenado = [];
+
+   // for(let i = 0; i < arrayOfStrings.length; i++) {
+   //    let min = Infinity;
+   //    let aux = 0;
+
+   //    for(let j = 0; j < arrayOfStrings.length; j++) {
+   //       if(arrayOfStrings[j].length < min && !indexOrdenado.includes(j)) {
+   //          min = arrayOfStrings[j].length;
+   //          aux = j;
+   //       }
+   //    }
+
+   //    arrayOrdenado.push(arrayOfStrings[aux]);
+   //    indexOrdenado.push(aux);
+   // }
+
+   // return arrayOrdenado;
+
+   return arrayOfStrings.sort((a, b) => a.length - b.length);
 }
+
+console.log(sortArray(['la', "You", "are", "beautiful", 'a', 'la', "looking"]));
+
 
 function buscoInterseccion(array1, array2) {
    // Recibes dos arreglos de números.
@@ -58,7 +90,19 @@ function buscoInterseccion(array1, array2) {
    // Si no tienen elementos en común, retornar un arreglo vacío.
    // [PISTA]: los arreglos no necesariamente tienen la misma longitud.
    // Tu código:
+
+   let arr = [];
+
+   for(let i = 0; i < array2.length; i++) {
+      if(array1.includes(array2[i])) {
+         arr.push(array2[i]);
+      }
+   }
+
+   return arr;
 }
+
+console.log(buscoInterseccion([4,2,3, 0], [1,3, 0,4]));
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
 module.exports = {

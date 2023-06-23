@@ -45,6 +45,12 @@ function arrayContiene(array, elemento) {
    // Verifica si el elemento existe dentro del arreglo recibido.
    // Retornar true si está, o false si no está.
    // Tu código:
+   for(var i = 0; i < array.length; i++) {
+      if(array[i] == elemento) {
+         return true;
+      }
+   }
+   return false;
 }
 
 function agregarNumeros(arrayOfNums) {
@@ -88,12 +94,27 @@ function empiezaConNueve(num) {
    // Esta función recibe por parámetro un número.
    // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
+   // while(num >= 10) {
+   //     num /= 10;
+   // }
+   // num = Math.trunc(num);
+   // return num === 9 ? true : false;
+
+   num = num.toString();
+
+   if(num[0] === '9') {
+       return true;
+   }
+
+   return false;
 }
 
 function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
    // Caso contrario retornar false.
    // Tu código:
+   let aux = array[0];
+   return array.every(elem => elem === aux);
 }
 
 function mesesDelAño(array) {
@@ -101,18 +122,38 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
-}
+   let aux = ['Enero', 'Marzo', 'Noviembre'];
 
+   let meses = [];
+
+   array.forEach( elem => {
+       if(aux.includes(elem)) {
+           meses.push(elem);
+       }
+   })
+
+   if(meses.length === 3) {
+       return meses;
+   }
+
+   return "No se encontraron los meses pedidos";
+}
 function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
+   let resultado = [];
+   for(let i = 0; i <= 10; i++) {
+       resultado.push(i*6);
+   }
+   return resultado;
 }
 
 function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
+   return array.filter(elem => elem > 100);
 }
 
 /* ----------------------------------------------------------------------------------
@@ -126,6 +167,23 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
+   let aux = [];
+   let aux2 = false;
+
+   for(let i = 0; i < 10; i++) {
+       num += 2;
+       aux.push(num);
+
+       if(num === i) {
+           aux2 = true;
+           break;
+       }
+   }
+
+   if(aux2) {
+       return "Se interrumpió la ejecución";
+   }
+   return aux;
 }
 
 function continueStatement(num) {
@@ -135,6 +193,18 @@ function continueStatement(num) {
    // se continua con la siguiente iteración.
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
+   let aux = [];
+
+   for(let i = 0; i < 10; i++) {
+       if(i === 5) {
+           continue;
+       }
+
+       num += 2;
+       aux.push(num);
+   }
+
+   return aux;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
